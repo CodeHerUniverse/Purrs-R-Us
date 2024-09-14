@@ -79,7 +79,7 @@ So how does my code achieve the required result?
 + Group the pollutants found in the results, with their respective hourly average measurements.
 + Using the same scoring system as the below image:
 
-  [INSERT IMAGE]
+ ![European CAQI AQI](https://github.com/user-attachments/assets/581a9fe5-6d81-47c1-bd43-a6b1e8714cc8)
 
   Import the Excel table, specifying the sheet that matches each summarized pollutant, merge it with its respective Range table, and select the row where the measure falls under. This assigns it a Score of 1 to 5, with 1 being the Lowest (Best) and 5 being the Highest (Worst). Append each score result to a list.(*Function*)
 + Sum the list values and divide them by the list's length (didn't want to use .mean() twice). This gives us the overall Air Quality Score in integer format.
