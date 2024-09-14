@@ -1,0 +1,24 @@
+2024-09-14 08:02:51.711366 - OS Names API request status: 200
+2024-09-14 08:02:51.797914 - Postcodes.io API request status: 200
+2024-09-14 08:02:52.209445 - OpenAq API Locations endpoint request status: 200
+2024-09-14 08:02:53.171232 - OpenAq API Measurements endpoint request status: 200
+2024-09-14 08:02:53.531210 - Program successfully run.
+2024-09-14 08:03:57.454712 - OS Names API request status: 200
+2024-09-14 08:03:57.522240 - Postcodes.io API request status: 200
+2024-09-14 08:03:57.911138 - OpenAq API Locations endpoint request status: 200
+2024-09-14 08:03:57.981124 - OpenAq API Measurements endpoint request status: 200
+2024-09-14 08:03:58.150606 - Program successfully run.
+2024-09-14 08:04:59.491379 - OS Names API request status: 200
+2024-09-14 08:04:59.565308 - Postcodes.io API request status: 200
+2024-09-14 08:04:59.947199 - OpenAq API Locations endpoint request status: 200
+2024-09-14 08:05:05.905361 - OpenAq API Measurements endpoint request status: 200
+2024-09-14 08:05:06.114804 - Program successfully run.
+2024-09-14 08:05:55.765650 - OS Names API request status: 200
+2024-09-14 08:05:55.843502 - Postcodes.io API request status: 200
+2024-09-14 08:05:56.316804 - OpenAq API Locations endpoint request status: 200
+2024-09-14 08:05:57.038101 - OpenAq API Measurements endpoint request status: 200
+2024-09-14 08:05:57.205367 - Program successfully run.
+2024-09-14 08:06:47.994797 - OS Names API request status: 200
+2024-09-14 08:06:48.060031 - Postcodes.io API request status: 200
+2024-09-14 08:06:48.473858 - OpenAq API Locations endpoint request status: 200
+2024-09-14 08:06:48.478434 - Unsuccessful run - Chosen location (Chideock) could not be located via latitude and longitude within OpenAQ (nearest results not available either). Contact OpenAQ team.

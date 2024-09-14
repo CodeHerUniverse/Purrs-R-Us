@@ -1,0 +1,11 @@
+2024-09-14 08:02:53.531210
+
+AQ Data requested for: Bournemouth - Bournemouth, Christchurch and Poole
+The overall AQI Score for this location is Low Air Pollution.
+The highest pollutant found in the area is O3. The presence level of this pollutant is deemed as Low .
+
+O3 stands for Ozone. Ground-level ozone comes from pollution emitted from cars, power
+plants, industrial boilers, refineries, and chemical plants. Long-term ozone exposure is associated with
+increased respiratory illnesses, metabolic disorders, nervous system issues, reproductive issues (including reduced male
+and female fertility and poor birth outcomes), cancer and also increased cardiovascular mortality,
+which is the main driver of total mortality.

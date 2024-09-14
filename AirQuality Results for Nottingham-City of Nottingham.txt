@@ -1,0 +1,13 @@
+2024-09-14 08:05:57.205367
+
+AQ Data requested for: Nottingham - City of Nottingham
+The overall AQI Score for this location is Very Low Air Pollution.
+The highest pollutant found in the area is PM10. The presence level of this pollutant is deemed as Very Low .
+
+PM10 stands for particulate matter with a diameter of 10 microns or less.
+Mainly caused by road transport sources, predominantly from non-exhaust sources (brakes, tyres), PM10
+also includes dust from construction sites, landfills and agriculture, wildfires and brush/waste burning,
+industrial sources, wind-blown dust from open lands, pollen and fragments of bacteria. Long
+term exposure can cause a variety of issues such as respiratory issues, increased
+risk of stroke and coronary heart disease, reduced lung function, worsen asthma and
+COPD.
