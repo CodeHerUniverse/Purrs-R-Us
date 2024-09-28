@@ -192,10 +192,15 @@ For this assignment we are to come up with a unique scenario where we will creat
 ## My Project - Purrs-R-Us, the Cat Shelter & Supply Shop ##
 
 
-My scenario is a Cat Shelter called Purrs-R-Us. In order to promote their business and increase engagement, they have decided to open a store alongside the shelter. The income from the shop will help fund the care that the cats need whilst they wait to be adopted. The store runs well but they want to increase engagement even more. A proposed change that has been approved is to create discount offers for people who adopt a cat from the shelter, encouraging them to buy items in the shelter shop. This also has a second effect, where regular customers may be more likely to adopt a cat if the cats are in the same location as the shop, but if they also provide a discount for future purchases.
+My scenario is a Cat Shelter called Purrs-R-Us. In order to promote their business and increase engagement, they have decided to open a store alongside the shelter. 
+
+The income from the shop will help fund the care that the cats need whilst they wait to be adopted. The store runs well but they want to increase engagement even more. A proposed change that has been approved is to create discount offers for people who adopt a cat from the shelter, encouraging them to buy items in the shelter shop. 
+
+This also has a second effect, where regular customers may be more likely to adopt a cat if the cats are in the same location as the shop, but if they also provide a discount for future purchases.
 
 As part of this scenario I will demonstrate the creation of the database, and any mechanisms coded that will help the shop to make data-driven decisions, automate processes where we can and understand their clientelle.
 
+*Note: Screenshots have been provided of all tables, including before & after certain processes. Images are numbered, so they follow the same order of each step of code.*
 
 ### Notes on Database Normalization and how the Database meets the required criteria ###
 
