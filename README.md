@@ -222,33 +222,48 @@ As part of this scenario I will demonstrate the creation of the database, and an
 ## Situations faced and the implemented solutions ##
 
 
-**The main goal of this project is to modernize the current processes in the shop, as well as consolidate the information accross tables. Shop_Orders is a direct feed from the cashiers input terminal and cannot be changed.**
+**The main goal of this project is to modernize the current processes in the shop, as well as consolidate the information accross tables. Shop_orders is a direct feed from the cashiers input terminal and cannot be changed.**
+
+*Solution:*
+
 + I have created an additional table that will be called SHOP_ORDERS_ENHANCED. This will consolidate much of the information.
 
 
-**Part of the initiative is to assist with some of the manual processes involved in processing a sale. The cashier has to manually check what is the item_id for each item in order to input it in the system and get the price. They also have to check if a customer is eligible for a promo, which promo & calculate the discounted price separately. For online orders, the user can only request a quote for the order total, as opposed to being able to get a total and pay immediately.**
+**Part of the initiative is to assist with some of the manual processes involved in processing a sale. The cashier currently has to manually check what is the item_id for each item in order to input it in the system and get the price. They also have to check if a customer is eligible for a promo, which promo & calculate the discounted price separately. For online orders, the user can only request a quote for the order total, as opposed to being able to get a total and pay immediately.**
+
+*Solution:* 
+
 + An SQL Procedure was developed so that the cashier can input a sales order with more user friendly inputs (Item Description as opposed to ID), which also automatically generates the latest order id. The cashier's input is then stored in the shop_orders table as normal, not interfering with the existing system.
-+ A Trigger was developed so that when a new order is input into the shop_orders table, it will:
++ A Trigger was also developed so that when a new order is input into the shop_orders table, it will:
   + Automatically populate the new order info in the shop_orders_enhanced Table.
   + Automatically populate the item's description, the price, the item's category (needed for the promo) and calculates the order_total
-  + Automatically check if a customer is entitled to a promotion (whether if they have adopted or not).
-  + Automatically check which promotion they are entitled to
+  + Automatically check if a customer is entitled to a promotion (whether they have adopted or not).
+  + Automatically check which promotion they are entitled to (2-for-1 or 20%)
   + Automatically calculate the order total after discount (if no discount then it will be the same as the original order total)
 
 
 **At the end of the day, the shop staff has to verify the stock levels and offset the orders processed throughout the day against each item's stock levels. This has led to unexpected shortages in the past, especially when dealing with multiple online orders.**
-+ In order to improve this process, within the Procedure (which houses a Transaction) that allows the user to input a new order easily, an additional Procedure has been incorporated that:
+
+*Solution:*
+
++ In order to improve this process, within the Procedure that allows the user to input a new order easily (which houses a Transaction), an additional Procedure has been incorporated that:
   + Checks if there is enough stock available
   + If there isn't enough stock (for example online orders), a message will be provided to the user that there isn't enough stock.
   + If there is enough stock, the stock levels will be adjusted as per the order.
 
  
 **The shop_orders_enhanced table is now very comprehensive, and staff users may be bombarded with information that they don't necessarily need when dealing with day to day transactions.**
+
+*Solution:*
+
 + In order to creat a more user-friendly interface, I have created a view, which displays the organized information and skips unnecessary fields.
 
 
 **With the growing awareness of Purrs-R-Us more customers have decided to start visiting our shop. Adding a new user is an unnecessary delay when processing orders.**
-+ Within the new Procedure to add new orders, I have impletemented some additional code that ensures that any users not present in the customer list are immediately adde to the customer table. This does not populate the customer_contact table, as customers may not be comfortable giving such details. Customers can have their contact details added at the point of sale, or online, when setting up an account.
+
+*Solution:*
+
++ Within the new Procedure to add new orders, I have impletemented some additional code that ensures that any users not present in the customer list are immediately added to the customer table. This does not populate the customer_contact table, as customers may not be comfortable giving such details. Customers can have their contact details added at the point of sale, or online, when setting up an account.
 
 
 **The Sales team want to regularly check who are the top spending customers that use the shop. The parameters are:**
@@ -257,37 +272,56 @@ As part of this scenario I will demonstrate the creation of the database, and an
   1. **Only show results for the latest month**
   1. **Sum of Sales is for ALL items bought in that time period**
   1. **An additional column displays the type of item the customer spends most money on, and what percentage of their overall spend that category makes up.**
-    
+
+  *Solution:*
+  
 + A view was created that provides all of the above parameters.
 
 
-**The Shelter part of the business still has some furbabies to be adopted. In light of this, the Marketing team is going to lauch a targeted campaign to try and persuade customers who haven't adopted to adopt some of our kitties. The first thing to do is to understand our kitties that haven't been adopted. Fur colour is a well known factor that sways some people when choosing to adopt one cat v.s. another
+**The Shelter part of the business still has some furbabies to be adopted. In light of this, the Marketing team is going to lauch targeted campaigns to try and persuade customers who haven't chosen to adopt some of our kitties. The first thing to do is to understand our kitties that haven't been adopted. Fur colour is a well known factor that sways some people when choosing to adopt one cat v.s. another
 so let's extract some facts on our own kitties. Within the adopted and non-adopted population of our shelter, what is the colour most present in each sub-set?**
+
+*Solution:*
+
 +  The developed code finds the most present colour within each sub-set, and divide it by the overall count of cats in that sub-set giving us the percentage of most frequent colour within the adopted and non-adopted groups. The output will be two statements describing the percentages.
 
 
 **After obtaining the cat fur colours statistics within each group (adopted and non-adopted), the team wants to find out if Average age within a breed makes a difference.**
-+ Two queries were developed to verify this information. No trend were observed.
+
+*Solution:*
+
++ Two queries were developed to verify this information. No trends were observed.
 
 
-**The Marketing team is confident that the basis for the campaign targeting customers with no adopted cats should be to promote cats that have black fur, as these are the highest group within the Non-Adopted sub-set. So need the details of any customers that have and haven't adopted.**
+**The Marketing team is confident that the basis for the campaign targeting customers with no adopted cats should be to promote cats that have black fur, as these for the highest group within the Non-Adopted sub-set. So we need the details of any customers that have and haven't adopted.**
+
+*Solution:*
+
 + A series of queries were developed to provide the Marketing team with:
   + A list of Customer Names that have adopted, and their Cat's names.
   + A list of Least to Most sold items to date.
   + A joint list of Customer names that haven't adopted, along with a joint list of cats that haven't been adopted.
+    
 + For the Adopted Campaign:
   + A list was provided of Customer Names that have adopted, as well as the names of their cats.
-  + A list of Least to Most sold items to date was provided, whose top 3 includes items that fall under the "Toys" and "Food" Categories.
-  + In light of this information, the Marketing team is going to release an email campaign, which will promote Catnip Puzze & the Healthy Nibbles products to the Customers that have adopted cats, highlighting the existing promotions that they are eligible for, and how they apply to these two items. The email will also address the customer including the name of their adopted cats, for a higher chance of engagement.
+  + A list of Least to Most sold items to date was provided, whose top 3 include items that fall under the "Toys" and "Food" Categories (promotions are only available for these type of items).
+  + In light of this information, the Marketing team is going to release an email campaign, which will promote Catnip Puzzle & the Healthy Nibbles products to the Customers that have adopted cats, highlighting the existing promotions that they are eligible for, and how they apply to these two items. The email will also address the customer including the name of their adopted cat(s), for a higher chance of engagement.
+    
 + For the Non Adopted Campaign:
-  + A multi-channel campaign is going to be launched using meme culture to promote the idea of adopting a Black Cat (for examplem, *"You stare into the void, and the void wants Chicken"*)
+  + A multi-channel campaign is going to be launched using meme culture to promote the idea of adopting a Black Cat (for example, *"You stare into the void, and the void wants Chicken"*)
   + A print campaign in store, which will display the images and names of the non-adopted cats.
 
  
 **Unexpectedly, there has been a recall on a product issued by Fluffy & Co, the "Scratchy Pole". In light of this information, we need to identify which customers purchased this item, and when, so we can reach out to inform them and issue refunds.** 
+
+*Solution:*
+
 + An SQL query retrieves this data, which includes the date the order was placed, who was the Customer, and their contact details.
 
 
 **Edgar Adams has reached out to the store informing us that he is moving to Spain, and therefore doesn't want to be contacted about promotions or marketing campaigns, however he still might buy some treats for his mum's cat when he comes to visit, so he just wants his contact details removed from the database.**
+
+*Solution:*
+
 + A procedure was developed that allows a user to remove the contact details of a Customer without accessing the full table, so the contact details of the remaining Customers are protected.
-+ An additional query was built that checks if a Customer on the customer table has contact details in the customer_contact table. The query returns a list of names.
++ An additional query was built that checks if a Customer present in the customer table has contact details in the customer_contact table. The query returns a list of names.
